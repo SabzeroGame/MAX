@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Contacts" %} | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-6">
+    <section class="hero-card p-4 h-100 advanced-gradient">
+      <h1 class="h3">{% trans "Contact team lead" %}</h1>
+      <p>{% trans "Want to join the club or propose a collaboration? Send us a message." %}</p>
+      <ul class="small mb-0">
+        <li>{% trans "Average response time: up to 24 hours." %}</li>
+        <li>{% trans "You can propose hackathon ideas or sports initiatives." %}</li>
+      </ul>
+    </section>
+  </div>
+  <div class="col-lg-6">
+    <form method="post" class="card border-0 shadow-sm p-3 p-md-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">{% trans "Send message" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

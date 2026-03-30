@@ -1,0 +1,179 @@
+/*
+  Главный CSS-файл приложения.
+  Содержит:
+  - CSS-переменные тем (light/dark);
+  - базовую типографику и поверхности;
+  - визуальные блоки (hero/stat/card/skills);
+  - анимации и hover-эффекты.
+*/
+
+:root {
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --text: #182230;
+    --muted: #5c6b7e;
+    --primary: #0d6efd;
+    --border: #dce3ef;
+    --accent: #7c4dff;
+    --accent-2: #00c2ff;
+}
+
+/* Цвета для тёмной темы (активируются через html[data-theme="dark"]). */
+html[data-theme="dark"] {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --text: #e6edf3;
+    --muted: #9fb0c3;
+    --primary: #6ea8fe;
+    --border: #2a3545;
+    --accent: #9d7bff;
+    --accent-2: #4fd8ff;
+}
+
+/* Базовая раскладка страницы и декоративный фон. */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--accent), transparent 80%), transparent 45%),
+                radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--accent-2), transparent 85%), transparent 35%),
+                var(--bg);
+    color: var(--text);
+}
+
+main { flex: 1; }
+
+/* Унифицированные поверхности блоков. */
+.card,
+.hero-card,
+.stat-card,
+.footer-surface,
+.glass-nav {
+    background-color: var(--surface) !important;
+    color: var(--text);
+    border-color: var(--border) !important;
+}
+
+.glass-nav {
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .05);
+}
+
+.navbar .nav-link,
+.navbar-brand { color: var(--text) !important; }
+
+/* Hero-блок главной страницы. */
+.hero-card {
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
+}
+
+.advanced-gradient {
+    position: relative;
+    overflow: hidden;
+}
+
+.advanced-gradient::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent), transparent 35%), transparent 68%);
+    pointer-events: none;
+}
+
+/* Небольшие «пилюли» для отображения технологий. */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .2rem .7rem;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+/* Карточки статистики. */
+.stat-card {
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .75rem .5rem;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 1.2rem;
+}
+
+.stat-card span {
+    font-size: .75rem;
+    color: var(--muted);
+}
+
+/* Карточки проектов: плавный подъём при наведении. */
+.project-card {
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .12) !important;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.text-secondary,
+.text-muted { color: var(--muted) !important; }
+
+/* Поля форм в общей визуальной системе. */
+.form-control,
+.form-select {
+    border-color: var(--border);
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+.form-control::placeholder { color: var(--muted); }
+
+/* Блок «карта навыков». */
+.skill-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .7rem;
+    font-size: .9rem;
+}
+
+.skill-bar {
+    border-radius: 999px;
+    height: 10px;
+    background: color-mix(in srgb, var(--border), transparent 18%);
+    overflow: hidden;
+}
+
+.skill-bar i {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .8s ease;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* Строка участника в блоке лидеров команды. */
+.member-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .6rem .75rem;
+}

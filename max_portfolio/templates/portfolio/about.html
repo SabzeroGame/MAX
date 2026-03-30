@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Team" %} | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="hero-card p-4 mb-4 advanced-gradient">
+  <h1 class="h2">{% trans "About our team" %}</h1>
+  <p class="mb-0">{% trans "We launch educational and sports initiatives: from MVPs to public showcases and competitions." %}</p>
+</section>
+
+<div class="row g-3">
+  {% for member in team %}
+  <div class="col-md-6 col-xl-4">
+    <article class="card border-0 shadow-sm h-100 project-card">
+      <div class="card-body">
+        <h2 class="h5">{{ member.full_name }}</h2>
+        <p class="text-secondary">{{ member.role }}</p>
+        <p class="small">{{ member.bio|default:'Team member focused on impact and growth.' }}</p>
+      </div>
+    </article>
+  </div>
+  {% empty %}
+  <div class="col-12"><div class="alert alert-warning">{% trans "No team members yet. Add them in Django admin." %}</div></div>
+  {% endfor %}
+</div>
+{% endblock %}

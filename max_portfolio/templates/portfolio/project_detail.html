@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ project.title }} | {{ site_name }}{% endblock %}
+{% block content %}
+<article class="card border-0 shadow-sm">
+  <div class="card-body p-4">
+    <p class="badge text-bg-primary">{{ project.category }}</p>
+    <h1 class="h3 mb-2">{{ project.title }}</h1>
+    <p class="text-secondary small">{% trans "Author" %}: {{ project.created_by }} · {% trans "Updated" %}: {{ project.updated_at|date:"d.m.Y H:i" }}</p>
+    {% if project.tech_stack %}<p><strong>{% trans "Tech stack" %}:</strong> {{ project.tech_stack }}</p>{% endif %}
+    <hr>
+    <div class="project-description">{{ project.description|linebreaks }}</div>
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: max-portfolio\n"
+"POT-Creation-Date: 2026-03-29 00:00+0000\n"
+"PO-Revision-Date: 2026-03-29 00:00+0000\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Projects"
+msgstr "Проекты"
+
+msgid "Team"
+msgstr "Команда"
+
+msgid "Contacts"
+msgstr "Контакты"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "Switch theme"
+msgstr "Переключить тему"
+
+msgid "Add project"
+msgstr "Добавить проект"
+
+msgid "Log out"
+msgstr "Выйти"
+
+msgid "Log in"
+msgstr "Войти"
+
+msgid "Made with Django and frontend care"
+msgstr "Сделано с Django и вниманием к фронтенду"
+
+msgid "Portfolio of student club / sports section"
+msgstr "Портфолио студенческого кружка / спортивной секции"
+
+msgid "We showcase real achievements, team collaboration and growth trajectory."
+msgstr "Показываем реальные достижения, командную работу и траекторию роста."
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Members"
+msgstr "Участники"
+
+msgid "Project search"
+msgstr "Поиск проектов"
+
+msgid "Name, description, tech stack"
+msgstr "Название, описание, стек технологий"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "All categories"
+msgstr "Все категории"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Tech stack"
+msgstr "Стек"
+
+msgid "No results found for the selected filter."
+msgstr "По выбранному фильтру ничего не найдено."
+
+msgid "Skill map"
+msgstr "Карта навыков"
+
+msgid "Team leaders"
+msgstr "Лидеры команды"
+
+msgid "About our team"
+msgstr "О нашей команде"
+
+msgid "We launch educational and sports initiatives: from MVPs to public showcases and competitions."
+msgstr "Мы запускаем учебные и спортивные инициативы: от MVP до публичных выступлений и соревнований."
+
+msgid "No team members yet. Add them in Django admin."
+msgstr "Пока нет участников. Добавь их в Django admin."
+
+msgid "Contact team lead"
+msgstr "Связаться с руководителем"
+
+msgid "Want to join the club or propose a collaboration? Send us a message."
+msgstr "Хочешь вступить в команду или предложить сотрудничество? Напиши нам."
+
+msgid "Average response time: up to 24 hours."
+msgstr "Среднее время ответа: до 24 часов."
+
+msgid "You can propose hackathon ideas or sports initiatives."
+msgstr "Можно предложить идеи хакатонов или спортивных инициатив."
+
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "New project"
+msgstr "Новый проект"
+
+msgid "Add new project"
+msgstr "Добавить новый проект"
+
+msgid "Save project"
+msgstr "Сохранить проект"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Sign in"
+msgstr "Вход"
+
+msgid "Project was saved successfully."
+msgstr "Проект успешно сохранён."
+
+msgid "Thank you! Your message has been sent."
+msgstr "Спасибо! Ваше сообщение отправлено."

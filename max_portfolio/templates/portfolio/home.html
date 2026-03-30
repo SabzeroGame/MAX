@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load portfolio_tags i18n %}
+{% block title %}{% trans "Projects" %} | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="hero-card p-4 p-md-5 mb-4 advanced-gradient">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-8">
+      <h1 class="display-6 fw-bold mb-3">{% trans "Portfolio of student club / sports section" %}</h1>
+      <p class="lead mb-3">{% trans "We showcase real achievements, team collaboration and growth trajectory." %}</p>
+      <div class="d-flex flex-wrap gap-2">
+        <span class="pill">Django</span>
+        <span class="pill">SQLite</span>
+        <span class="pill">REST API</span>
+        <span class="pill">Bootstrap</span>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="row g-2 text-center">
+        <div class="col-4"><div class="stat-card"><strong class="counter" data-value="{{ stats.projects }}">0</strong><span>{% trans "Projects" %}</span></div></div>
+        <div class="col-4"><div class="stat-card"><strong class="counter" data-value="{{ stats.categories }}">0</strong><span>{% trans "Categories" %}</span></div></div>
+        <div class="col-4"><div class="stat-card"><strong class="counter" data-value="{{ stats.members }}">0</strong><span>{% trans "Members" %}</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card border-0 shadow-sm mb-4">
+  <div class="card-body">
+    <form method="get" class="row g-2 align-items-end">
+      <div class="col-md-6">
+        <label class="form-label">{% trans "Project search" %}</label>
+        <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="{% trans 'Name, description, tech stack' %}">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">{% trans "Category" %}</label>
+        <select name="category" class="form-select">
+          <option value="">{% trans "All categories" %}</option>
+          {% for category in categories %}
+          <option value="{{ category.slug }}" {% if selected_category == category.slug %}selected{% endif %}>
+            {{ category.title }} ({{ category.total }})
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-primary" type="submit">{% trans "Show" %}</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="row g-3">
+  {% for project in projects %}
+  <div class="col-md-6 col-xl-4">
+    <article class="card h-100 border-0 shadow-sm project-card">
+      <div class="card-body">
+        <p class="badge text-bg-primary mb-2">{{ project.category }}</p>
+        <h2 class="h5 card-title"><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h2>
+        <p class="small text-secondary mb-2">{% trans "Author" %}: {{ project.created_by }}</p>
+        {% if project.tech_stack %}<p class="small"><strong>{% trans "Tech stack" %}:</strong> {{ project.tech_stack }}</p>{% endif %}
+        <p class="card-text">{{ project.summary|short_text:145 }}</p>
+      </div>
+    </article>
+  </div>
+  {% empty %}
+  <div class="col-12"><div class="alert alert-info">{% trans "No results found for the selected filter." %}</div></div>
+  {% endfor %}
+</div>
+
+<section class="mt-5">
+  <div class="row g-3">
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h3 class="h5 mb-3">{% trans "Skill map" %}</h3>
+          <div class="skill-row"><span>Backend</span><div class="skill-bar"><i style="--w:88%"></i></div></div>
+          <div class="skill-row"><span>Frontend</span><div class="skill-bar"><i style="--w:82%"></i></div></div>
+          <div class="skill-row"><span>API</span><div class="skill-bar"><i style="--w:85%"></i></div></div>
+          <div class="skill-row"><span>DevOps</span><div class="skill-bar"><i style="--w:70%"></i></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      {% if featured_members %}
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body">
+          <h3 class="h5 mb-3">{% trans "Team leaders" %}</h3>
+          <div class="d-grid gap-2">
+            {% for member in featured_members %}
+            <div class="member-line">
+              <div>
+                <strong>{{ member.full_name }}</strong>
+                <div class="small text-secondary">{{ member.role }}</div>
+              </div>
+              <span class="badge rounded-pill text-bg-secondary">{{ forloop.counter }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
